@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.scss";
+import ReactQueryProvider from "@/components/providers/react-query-provider";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "WebDex - Know your Pokemons",
@@ -13,7 +15,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ReactQueryProvider>
+          <Navbar />
+          {children}
+        </ReactQueryProvider>
+      </body>
     </html>
   );
 }
